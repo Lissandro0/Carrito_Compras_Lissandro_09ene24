@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-{% load static%}
+{% load static %}
 <html lang="es">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a la tienda</title>
-    <!-- Bootstrap-->
+
+    <title>Bienvenido a la Tienda</title>
+    <!-- Bootstrap -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Styles -->
     <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
 </head>
 <body>
-    
     <div class="container">
         <div class="row">
             <div class="col-12 align-self-center"><h1 class="display-1">TIENDA</h1></div>
@@ -23,13 +23,13 @@
                         <div class="row">
                             {% for producto in productos %}
                             <div class="col-6">
-                                <div class="card" style="height: 10rem; width: 23rem; margin: 5px 0px;">
-                                <div class="card-body">
-                                    <h5 class="card-tittle">{{producto.nombre}}</h5>
-                                    <p class="card-text">{{producto.categoria}}</p>
-                                    <p class="card-text">{{producto.precio}}</p>
-                                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                                </div>
+                                <div class="card container">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{producto.nombre}}</h5>
+                                        <p class="card-text">{{producto.categoria}}</p>
+                                        <p class="card-text">{{producto.precio}}</p>
+                                        <div class="buttom"><a href="{% url 'Add' producto.id %}" class="btn btn-success">Agregar al carrito</a></div>
+                                    </div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -38,11 +38,11 @@
                 </div>
             </div>
             <div class="col-4">
-                carrito
+                {% include "carrito.html" %}
             </div>
         </div>
     </div>
-    
+
     <!-- Bootstrap -->
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>

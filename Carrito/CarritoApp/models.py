@@ -6,6 +6,5 @@ class Producto(models.Model):
    categoria = models.CharField(max_length=32)
    precio = models.IntegerField()
 
-   def __st__(self):
+   def __str__(self):
       return f'{self.nombre} -> {self.precio}'
-      
